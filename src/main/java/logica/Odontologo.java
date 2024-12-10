@@ -6,38 +6,40 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author davii
  */
+@Entity
 public class Odontologo extends Persona {
-    private int id_odontologo;
+    
     private String especialidad;
     
+    //Recuerda que si no mapeas es como si hicieses un N:M en XAMP
+    //En la base de datos la fk va al lado de la N, pero usando clases la N va al lado del uno, o sea la coleccion(N) va en esta clase(1)
+    @OneToMany(mappedBy="odonto")
     private List <Turno> lista_Turno;
+    
+    @OneToOne
     private Usuario usuario;
+    @OneToOne
     private Horario horario;
 
     public Odontologo() {
     }
 
-    public Odontologo(int id_odontologo, String especialidad, List<Turno> lista_Turno, Usuario usuario, Horario horario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_odontologo = id_odontologo;
+    public Odontologo(String especialidad, List<Turno> lista_Turno, Usuario usuario, Horario horario, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.especialidad = especialidad;
         this.lista_Turno = lista_Turno;
         this.usuario = usuario;
         this.horario = horario;
     }
-
-    public int getId_odontologo() {
-        return id_odontologo;
-    }
-
-    public void setId_odontologo(int id_odontologo) {
-        this.id_odontologo = id_odontologo;
-    }
+    
 
     public String getEspecialidad() {
         return especialidad;
