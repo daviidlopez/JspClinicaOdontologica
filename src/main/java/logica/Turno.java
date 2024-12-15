@@ -23,7 +23,7 @@ public class Turno implements Serializable {
     
     @ManyToOne
     //Esto es el nombre de la relacion o FK que vamos a tener entre medio
-    @JoinColumn(name="id_turno")
+    @JoinColumn(name="id_turno3")
     private Odontologo odonto;
     
     @ManyToOne

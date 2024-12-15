@@ -20,6 +20,9 @@ public class Responsable extends Persona {
         this.tipo_responsabilidad = tipo_responsabilidad;
     }
 
+    public Responsable() {
+    }
+
     
 
     

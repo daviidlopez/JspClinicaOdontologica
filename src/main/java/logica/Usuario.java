@@ -23,6 +23,17 @@ public class Usuario implements Serializable {
     private String contrasenia;
     private String rol;
 
+    public Usuario(String nombreUsuario, String contrasenia, String rol) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
+    }
+
+    public Usuario() {
+    }
+    
+    
+
     public int getId_usuario() {
         return id_usuario;
     }

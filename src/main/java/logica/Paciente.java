@@ -22,6 +22,10 @@ public class Paciente extends Persona {
     @OneToMany(mappedBy="pacien")
     private List <Turno> lista_Turno;
 
+    public Paciente() {
+    }
+
+    
     public Paciente(boolean tiene_OS, String tipo_sangre, Responsable responsable, List<Turno> lista_Turno, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.tiene_OS = tiene_OS;
