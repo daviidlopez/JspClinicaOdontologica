@@ -33,4 +33,15 @@ public class Controladora {
     public void editarUsuario(Usuario usuario) {
         controlPersis.editarUsuario(usuario);
     }
+
+    public boolean verificarUsuario(String nomUsuario, String password) {
+        //Si la base de datos fuera grande lo mejor sería hacer una query
+        List<Usuario> listUsuarios = controlPersis.getUsuarios();
+        boolean isLoginSuccessful = false;
+        for (Usuario user: listUsuarios) {
+            if (user.getNombreUsuario().equals(nomUsuario) && user.getContrasenia().equals(password))
+                isLoginSuccessful = true;
+        }
+        return isLoginSuccessful;
+    }
 }

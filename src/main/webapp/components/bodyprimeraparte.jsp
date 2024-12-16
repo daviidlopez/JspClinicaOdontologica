@@ -5,6 +5,14 @@
 --%>
  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    HttpSession miSession = request.getSession();
+    String nomUsuario = (String) miSession.getAttribute("nomUsuario");
+    
+    if (nomUsuario == null) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -25,12 +33,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-solid fa-bars"></i>
-                    <span>Menu</span></a>
-            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -124,7 +127,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=nomUsuario%></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
